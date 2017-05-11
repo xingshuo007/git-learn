@@ -1,0 +1,28 @@
+{
+  "name": "gulptest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-browserify": "*",
+    "gulp-concat": "*",
+    "gulp-connect": "*",
+    "gulp-minify": "*",
+    "gulp-minify-html": "*",
+    "gulp-mock-server": "*",
+    "gulp-rename": "*",
+    "gulp-rev": "*",
+    "gulp-rev-collector": "*",
+    "gulp-sass": "*",
+    "gulp-uglify": "*",
+    "gulp-webserver": "*",
+    "mockjs": "^1.0.1-beta3",
+    "url": "^0.11.0"
+  }
+}
