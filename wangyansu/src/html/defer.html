@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="../common/angular.js"></script>
+<script src="../common/jquery.js"></script>
+<script>
+    var arr=[];
+    function getData(url,status){
+        var $defer= $.Deferred()
+        arr.push($.ajax(url))
+        if(status){
+            $defer.resolve(arr)
+        }else{
+            $defer.reject('fail')
+        }
+        return $defer.promise()
+    }
+    var fn1=getData('../../data/goods.json',true)
+    var fn2=getData('../../data/data.json',true)
+    fn1.then(function(data){
+        return fn2
+    }).then(function (data) {
+       console.log(arr)
+    })
+//    var $defer1= $.Deferred()
+//    var $defer2= $.Deferred()
+//    var promise1 = $.ajax('../../data/goods.json');
+//    var promise2=$.ajax('../../data/data.json')
+//    promise1.then(function(data){
+//        $.each(data,function(i,v){
+//            console.log('ajax第一次请求数据:'+ v.mood)
+//        });
+//        return promise2;
+//    }).then(function(data){
+//        $.each(data,function(i,v){
+//            console.log('ajax第二次请求数据=>name:'+ v.name+'心情： '+ v.saying)
+//        })
+        //console.log('ajax第二次请求数据：'+data)
+
+//    var promise2 = promise1.then(function(data){
+//        return $.ajax('../../data/travel.json', { "data": data });
+//    });
+//    var promise3 = promise2.then(function(data){
+//        return $.ajax('../../data/attraction.json', { "data": data });
+//    });
+//    promise3.done(function(data){
+//        console.log(data)
+//        // data retrieved from url3
+//    });
+</script>
+</body>
+</html>

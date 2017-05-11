@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .sky {
+            color:white;
+            background-color:lightblue;
+            padding:20px;
+            font-family:"Courier New";
+        }
+        .tomato {
+            background-color:coral;
+            padding:40px;
+            font-family:Verdana;
+        }
+    </style>
+</head>
+    <body ng-app="myApp" ng-controller="myCtrl" ng-init="firstname='Audery';lastname='Hepburn'">
+        <p><span ng-bind="firstname+' '+lastname"></span></p>
+        <button ng-click="fn()">click me</button>
+        <p>myname:<input type="text" ng-model="name"></p>
+        <p ng-bind="name"></p>
+        <!--<p>{{name}}</p>-->
+        <button ng-click="fn2()">toggle</button>
+        <p ng-show="boll">memory is beautiful</p>
+        <ul>
+            <li ng-repeat="x in obj">
+                {{"name:"+x.name+" hobby:"+x.hobby+" mood:"+x.mood}}
+            </li>
+        </ul>
+        <select ng-model="home">
+            <option value="sky">天空色</option>
+            <option value="tomato">番茄色</option>
+        </select>
+        <div ng-class="home">
+            <h1>Welcome Home!</h1>
+            <p>I like it!</p>
+        </div>
+        <p ng-if="true">this is condition</p>
+    <script src="../../common/angular.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.name = "彦小苏";
+            $scope.fn=function(){
+                alert('happy together')
+            }
+            $scope.boll=true;
+            $scope.fn2=function(){
+                $scope.boll=!$scope.boll;
+            }
+            $scope.obj=[
+                {
+                    'name':'yxs',
+                    'hobby':'travel',
+                    'mood':'beautiful'
+                },
+                {
+                    'name':'wxm',
+                    'hobby':'sleep',
+                    'mood':'beautiful'
+                },
+                {
+                    'name':'fdd',
+                    'hobby':'eat',
+                    'mood':'beautiful'
+                }
+            ]
+        });
+    </script>
+</body>
+</html>
