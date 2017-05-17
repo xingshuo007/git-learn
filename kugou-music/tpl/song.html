@@ -1,0 +1,15 @@
+<section id="song-section" class="song-section">
+    <div class="swiper-container banner">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img ng-src="images/banner.jpg" alt=""></div>
+            <div class="swiper-slide"><img ng-src="images/banner1.jpg" alt=""></div>
+            <div class="swiper-slide"><img ng-src="images/banner2.jpg" alt=""></div>
+            <div class="swiper-slide"><img ng-src="images/banner3.jpg" alt=""></div>
+            <div class="swiper-slide"><img ng-src="images/banner4.jpg" alt=""></div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <ul class="songs">
+        <li ng-repeat="x in songs">{{x}}<i class="fa fa-heart-o float-right"></i></li>
+    </ul>
+</section>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>酷狗音乐</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="css/swiper.min.css">
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body ng-app="myApp">
+    <header>
+        <div class="tit">
+            <a href="#" class="float-right"><i class="fa fa-search"></i></a>
+            <h2>酷狗音乐</h2>
+        </div>
+        <nav>
+            <a href="#/song">新歌</a>
+            <a href="#/order">排行</a>
+            <a href="#/list">歌单</a>
+            <a href="#/singer">歌手</a>
+        </nav>
+    </header>
+    <div ng-view></div>
+    <script type="text/javascript" src="common/angular.js"></script>
+    <script type="text/javascript" src="common/angular-route.js"></script>
+    <script type="text/javascript" src="js/iscroll.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/zepto.min.js"></script>
+    <script type="text/javascript" src="js/touch.js"></script>
+    <script type="text/javascript" src="js/event.js"></script>
+
+    <script type="text/javascript">
+        var mySwiper = new Swiper('.swiper-container',{
+                pagination : '.swiper-pagination',
+                loop:true,
+                autoplay:1000
+            })
+        var app=angular.module('myApp',['ngRoute'])//包含了 ngRoute 模块作为主应用模块的依赖模块。
+                .config(['$routeProvider',function($routeProvider){
+                    $routeProvider
+                            .when('/',{
+                                templateUrl:'tpl/song.html',
+                                controller:function($scope){
+                                    $scope.songs=[
+                                        '郑中基-答应不爱你',
+                                        '刘明湘-漂洋过海来看你',
+                                        '张芸京-偏爱',
+                                        '张栋梁-当你孤单时你会想起谁'
+                                    ];
+                                }
+                            })
+                            .when('/order',{
+                                templateUrl:'tpl/order.html',
+                                controller:function($scope){
+                                    $scope.orders=[
+                                        {"img":"images/a.png","text":"酷狗飙升榜"},
+                                        {"img":"images/b.png","text":"酷狗TOP555"},
+                                        {"img":"images/c.png","text":"网络红歌榜"},
+                                        {"img":"images/d.png","text":"DJ榜"}
+
+                                    ];
+                                }
+                            })
+                            .when('/list',{
+                                templateUrl:'tpl/list.html',
+                                controller:function($scope){
+                                    $scope.lists=[
+                                        {"img":"images/1.jpg","text":"梦想的声音 合辑"},
+                                        {"img":"images/2.jpg","text":"围炉音乐会 合辑"},
+                                        {"img":"images/3.jpg","text":"百首华语挚爱情歌"},
+                                        {"img":"images/4.jpg","text":"最是粤语情深处"}
+                                    ];
+                                }
+                            })
+                            .when('/singer',{
+                                templateUrl:'tpl/singer.html',
+                                controller:function($scope){
+                                    $scope.singers=[
+                                        '郑中基',
+                                        '刘明湘',
+                                        '张芸京',
+                                        '张栋梁',
+                                        '林俊杰'
+                                    ];
+                                }
+                            })
+                            .otherwise({
+                                redirectTo:'/'
+                            })
+                }])
+//        angular.module('myApp', [])
+//                .directive("navButton", function() {
+//                    var link_func = function(scope, element, attr) {
+//                        $(element).click(function() {
+//                            if (scope.ClickedButton) {
+////这里是点击后的操作,就是访问过后
+//                            }
+//                            scope.ClickedButton = element
+//                            $(element).addClass("active");
+//                            $(element).siblings().removeClass("active")
+//                        })
+//                    }
+//                    return {
+//                        restrict: 'E',
+//                        link: link_func,
+//                    }
+//                })
+    </script>
+</body>
+</html>

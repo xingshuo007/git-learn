@@ -1,0 +1,66 @@
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.12rem;
+  display: flex;
+  flex-direction: column; }
+  body header .tit {
+    height: 0.44rem;
+    background: deepskyblue;
+    color: #fff;
+    line-height: 0.44rem;
+    padding: 0 0.12rem; }
+  body header nav {
+    display: flex;
+    line-height: 0.4rem;
+    border-bottom: 1px solid #ccc; }
+    body header nav .active {
+      border-bottom: 2px solid deepskyblue; }
+    body header nav a {
+      flex: 1;
+      text-align: center;
+      font-size: 0.16rem; }
+
+.song-section {
+  flex: 1;
+  overflow-y: scroll; }
+  .song-section .banner {
+    width: 100%;
+    height: 1.4rem; }
+    .song-section .banner img {
+      width: 100%;
+      height: 100%; }
+  .song-section .songs li {
+    padding: 0.1rem 0.12rem;
+    border-bottom: 1px solid #ccc; }
+
+.order-section, .list-section {
+  flex: 1;
+  overflow-y: scroll; }
+  .order-section .dls, .list-section .dls {
+    display: flex;
+    padding: 0.12rem;
+    align-items: center;
+    border-bottom: 1px solid #ccc; }
+    .order-section .dls dt, .list-section .dls dt {
+      width: 1rem;
+      height: 1rem; }
+      .order-section .dls dt img, .list-section .dls dt img {
+        width: 100%;
+        height: 100%; }
+    .order-section .dls dd, .list-section .dls dd {
+      flex: 1;
+      box-sizing: border-box;
+      padding-left: 0.2rem; }
+      .order-section .dls dd a, .list-section .dls dd a {
+        position: absolute;
+        right: 0; }
+
+.singer-section .singers li {
+  padding: 0.1rem 0.12rem;
+  border-bottom: 1px solid #ccc; }
+
+/*# sourceMappingURL=style.css.map */
